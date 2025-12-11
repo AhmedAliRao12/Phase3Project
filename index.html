@@ -100,7 +100,7 @@
   </footer>
 
 <script>
-/* ----- Column mapping ----- */
+/* Coloumn Mapping */
 const COLS = {
   year: 'work_year',
   salary: 'salary_in_usd',
@@ -110,7 +110,7 @@ const COLS = {
   country: 'company_location'
 };
 
-/* ----- Helpers ----- */
+
 function mapRemoteRatio(val) {
   const n = Number(val);
   if (n === 100) return 'Remote';
@@ -120,7 +120,7 @@ function mapRemoteRatio(val) {
 }
 const expMap = { EN: 0, MI: 1, SE: 2, EX: 3 };
 
-/* ----- Load dataset from same folder ----- */
+/* Loading the dataset */
 fetch("ds_salaries.csv")
   .then(res => res.text())
   .then(csvText => {
@@ -134,7 +134,7 @@ fetch("ds_salaries.csv")
   });
 
   
-/* ----- Main process ----- */
+/* main process */
 function processAndRender(raw) {
   const rows = raw.map(r => ({
     year: Number(r[COLS.year]),
@@ -160,7 +160,7 @@ function processAndRender(raw) {
 function renderViz1(rows, years) {
   const workTypes_viz1 = ['Remote', 'Hybrid', 'Onsite']; // renamed to avoid conflict
 
-  // Create traces grouped by YEAR, but initially show only the first year
+  
   const allTraces = [];
   years.forEach((yr, i) => {
     workTypes_viz1.forEach(wt => {
